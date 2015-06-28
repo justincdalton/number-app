@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creationDate="main.creationDate" />
+  </div>
+
+  <div class="row">
+    <form ng-submit="main.add()">
+      <div class="small-4">
+        <select ng-model="main.fieldCount"
+                ng-options="count for count in main.availableFieldCounts"
+                ng-change="main.resetFields()">
+        </select>
+      </div>
+      <div class="small-4" ng-repeat="field in main.fields track by $index">
+        <label>{{field.rank}}</label>
+        <input type="text" ng-model="field.val" />
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <h3>{{main.total}}</h3>
+  </div>
+
+</div>
